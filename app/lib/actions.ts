@@ -34,9 +34,9 @@ export async function createInvoice(formData: FormData) {
     `;
   } catch (error) {
     console.error(error);
-    return {
-        message: 'Database Error: Failed to Create Invoice.',
-    };
+    // return {
+    //     message: 'Database Error: Failed to Create Invoice.',
+    // };
   }
 
   revalidatePath('/dashboard/invoices');
@@ -63,15 +63,13 @@ export async function createInvoice(formData: FormData) {
   } catch (error) {
 
   }
-
   
- 
   revalidatePath('/dashboard/invoices');
   redirect('/dashboard/invoices');
 }
 
 export async function deleteInvoice(id: string) {
-  throw new Error('Failed to Delete Invoice');
+  //throw new Error('Failed to Delete Invoice');
   await sql`DELETE FROM invoices WHERE id = ${id}`;
   revalidatePath('/dashboard/invoices');
 }
